@@ -45,7 +45,7 @@ zikrs.forEach(item => {
 const count = document.getElementById('count');
 count.addEventListener('click', ()=> {
     if(targetVal === 0) {
-        showStatus.innerText = "Select a Zikr first!";
+        showStatus.innerText = "Select a Dhikr first!";
         return;
     }
 

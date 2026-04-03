@@ -10,8 +10,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 100dvh;
     padding: 0px 10px 0px 10px;
+    overflow: hidden;
 }
 
 /* glowing background */
@@ -27,6 +28,7 @@ body::before {
     opacity: 0.25;
     transform: translate(-50%, -50%);
     z-index: -1;
+    pointer-events: none;
 }
 
 /* card */
@@ -177,7 +179,7 @@ h1 {
 }
 
 footer {
-    position: fixed;
+    position: absolute;
     bottom: 10px;
     left: 0;
     width: 100%;
