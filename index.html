@@ -3,33 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DhikrFlow is a modern online tasbih counter with dhikr meaning, target tracking, and a clean responsive UI.">
+
+    <link rel="shortcut icon" href="assets/dhikrflow_logo.png" type="image/x-icon">
     <title>DhikrFlow - Online Dhikr Counter</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div id="card">
-        <h1><span class="white">Dhikr</span><span class="green">Flow</span></h1>
 
-        <div class="zikr-card">
-            <button id="z1" class="zikr">SubhanAllah</button>
-            <button id="z2" class="zikr">Alhamdulillah</button>
-            <button id="z3" class="zikr">Allahu Akbar</button>
-            <button id="z4" class="zikr">Astagfirullah</button>
-            <button id="z5" class="zikr">La ilaha illa Allah</button>
+<body class="relative font-sans bg-[#0a0a0a] flex justify-center items-center min-h-dvh px-2.5 overflow-hidden before:content-[''] before:fixed before:top-1/2 before:left-1/2 before:w-[400px] before:h-[400px] before:bg-green-500 before:blur-[120px] before:opacity-25 before:-translate-x-1/2 before:-translate-y-1/2 before:-z-10 before:pointer-events-none">
+
+    <!-- Main Card -->
+    <div id="card" class="relative w-full max-w-[400px] px-4 py-3 m-2 rounded-[25px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[20px] border border-[rgba(255,255,255,0.1)] shadow-[0_20px_60px_rgba(0,0,0,0.7),inset_0_0_25px_rgba(255,255,255,0.05)] text-center text-white transition-all duration-300">
+
+        <!-- Heading -->
+        <h1 class="text-[36px] font-bold mb-4 tracking-[0.5px]">
+            <span class="text-white">Dhikr</span><span class="text-[#22c55e]">Flow</span>
+        </h1>
+
+        <!-- Zikr Selection Buttons -->
+        <div class="flex flex-wrap justify-center text-[14px] gap-2.5 mb-5">
+            <button id="z1" class="zikr inline-flex items-center justify-center px-3.5 py-2 rounded-[20px] border-0 bg-[rgba(255,255,255,0.06)] text-white cursor-pointer backdrop-blur-[5px] transition-all duration-250 whitespace-nowrap hover:bg-[rgba(255,255,255,0.12)] hover:-translate-y-0.5">
+                SubhanAllah
+            </button>
+            <button id="z2" class="zikr inline-flex items-center justify-center px-3.5 py-2 rounded-[20px] border-0 bg-[rgba(255,255,255,0.06)] text-white cursor-pointer backdrop-blur-[5px] transition-all duration-250 whitespace-nowrap hover:bg-[rgba(255,255,255,0.12)] hover:-translate-y-0.5">
+                Alhamdulillah
+            </button>
+            <button id="z3" class="zikr inline-flex items-center justify-center px-3.5 py-2 rounded-[20px] border-0 bg-[rgba(255,255,255,0.06)] text-white cursor-pointer backdrop-blur-[5px] transition-all duration-250 whitespace-nowrap hover:bg-[rgba(255,255,255,0.12)] hover:-translate-y-0.5">
+                Allahu Akbar
+            </button>
+            <button id="z4" class="zikr inline-flex items-center justify-center px-3.5 py-2 rounded-[20px] border-0 bg-[rgba(255,255,255,0.06)] text-white cursor-pointer backdrop-blur-[5px] transition-all duration-250 whitespace-nowrap hover:bg-[rgba(255,255,255,0.12)] hover:-translate-y-0.5">
+                Astagfirullah
+            </button>
+            <button id="z5" class="zikr inline-flex items-center justify-center px-3.5 py-2 rounded-[20px] border-0 bg-[rgba(255,255,255,0.06)] text-white cursor-pointer backdrop-blur-[5px] transition-all duration-250 whitespace-nowrap hover:bg-[rgba(255,255,255,0.12)] hover:-translate-y-0.5">
+                La ilaha illa Allah
+            </button>
         </div>
 
-        <div class="zikr-info">
-            <h3 id="showZikr"></h3>
-            <p id="showMeaning"></p>
+        <!-- Display Zikr in arabic and it's meaning -->
+        <div class="mb-2.5">
+            <h3 id="showZikr" class="text-[22px] font-bold mb-0.5" style="font-family: 'Amiri', serif; direction: rtl;"></h3>
+            <p id="showMeaning" class="text-[16px] opacity-70 leading-[1.4]"></p>
         </div>
 
-        <p id="showStatus"></p>
-        <p id="showCount">0</p>
-        <h3 id="showTarget">Target: 0</h3>
-        
-        <button id="count">COUNT</button>
+        <!-- Status, Count and target display -->
+        <p id="showStatus" class="text-[12px] text-[#22c55e] min-h-[18px]"></p>
+        <p id="showCount" class="text-[70px] font-bold my-[15px]">0</p>
+        <h3 id="showTarget" class="text-[15px] font-bold opacity-70 mb-[15px]">Target: 0</h3>
+
+        <!-- Count Button -->
+        <button id="count" class="w-[100px] h-[100px] mb-2 rounded-full border-0 bg-[linear-gradient(135deg,#22c55e,#16a34a)] text-black font-bold cursor-pointer transition-transform duration-200 shadow-[0_10px_25px_rgba(34,197,94,0.4)] hover:scale-105">COUNT</button>
     </div>
-    <footer>© 2026 DhikrFlow. All rights reserved by Golam Aif Ahnaf</footer>
+
+    <!-- Copyright Info -->
+    <footer class="absolute bottom-1 left-0 w-full text-center text-[10px] sm:text-[12px] text-[rgba(255,255,255,0.5)] tracking-[0.5px] opacity-70">© 2026 DhikrFlow. All rights reserved by <a href="https://github.com/golamafifahnaf" target="_blank">Golam Aif Ahnaf</a></footer>
 
 </body>
 
